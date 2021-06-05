@@ -235,7 +235,7 @@ model.save(build_dir + "/tfc_w1_a1_pynq_deploy.onnx")
 
 ```
 
-<!---
+
 - Existing
 ```bash
 ! sshpass -p {password} ssh {username}@{ip} -p {port} 'ls -l {target_dir_pynq}'
@@ -266,8 +266,6 @@ model.save(build_dir + "/tfc_w1_a1_pynq_deploy.onnx")
 ```bash
 ! ssh -t {username}@{ip} -p {port} 'cd {target_dir_pynq}; echo {password} | sudo -S python3.6 validate.py --dataset mnist --batchsize 1000'
 ```
-
---->
 
 After making these changes, save the notebook, click the top cell as shown, and execute cell-by-cell by clicking "Run".
 
