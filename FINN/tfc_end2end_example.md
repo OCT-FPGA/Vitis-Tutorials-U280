@@ -283,7 +283,7 @@ model.save(build_dir + "/tfc_w1_a1_pynq_deploy.onnx")
 
 - Existing
 
-bash```
+```bash
 ! sshpass -p {password} ssh -t {username}@{ip} -p {port} 'cd {target_dir_pynq}; echo {password} | sudo -S python3.6 validate.py --dataset mnist --batchsize 1000'
 ```
 
