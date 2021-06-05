@@ -320,6 +320,20 @@ pip install bitstring
 ```
 --->
 
+### Install Bitstring and Pynq
+
+Install these packages. Go with the default selection, when prompted.
+
+```bash
+sudo apt-get update
+sudo apt-get install -y python3-pip
+pip3 install bitstring
+pip3 install cffi
+pip3 install numpy
+pip3 install pynq
+
+```
+
 ### Install Anaconda
 
 [This guide](https://pynq.readthedocs.io/en/v2.5.1/getting_started/alveo_getting_started.html) provides instructions on how to install anaconda. Do the following. Go with the default selection, when prompted.
@@ -341,19 +355,6 @@ Then create a conda environment with the name ```finn-pynq-alveo```.
 conda create -n finn-pynq-alveo python=3.6
 ```
 
-### Install Bitstring and Pynq
-
-Install these packages. Go with the default selection, when prompted.
-
-```bash
-sudo apt-get update
-sudo apt-get install -y python3-pip
-pip3 install bitstring
-pip3 install cffi
-pip3 install numpy
-pip3 install pynq
-
-```
 <!---After doing these steps source set up ```XILINX_XRT``` environment variable.
 
 ```bash
