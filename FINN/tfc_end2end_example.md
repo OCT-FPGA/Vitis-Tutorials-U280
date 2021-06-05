@@ -252,17 +252,43 @@ model.save(build_dir + "/tfc_w1_a1_pynq_deploy.onnx")
 ```
 
 - Replace with
+
 ```bash
 ! ssh -t {username}@{ip} -p {port} 'echo {password} | sudo -S pip3 install git+https://github.com/fbcotter/dataset_loading.git@0.0.4#egg=dataset_loading'
 
 ```
 
 - Existing
+
 ```bash
 ! sshpass -p {password} ssh -t {username}@{ip} -p {port} 'cd {target_dir_pynq}; echo {password} | sudo -S python3.6 validate.py --dataset mnist --batchsize 1000'
 ```
 
 - Replace with
+
+```bash
+! ssh -t {username}@{ip} -p {port} 'cd {target_dir_pynq}; echo {password} | sudo -S python3.6 validate.py --dataset mnist --batchsize 1000'
+```
+
+- Existing
+
+```bash
+! sshpass -p {password} ssh -t {username}@{ip} -p {port} 'echo {password} | sudo -S pip3 install git+https://github.com/fbcotter/dataset_loading.git@0.0.4#egg=dataset_loading'
+```
+- Relpace with
+
+```bash
+! ssh -t {username}@{ip} -p {port} 'echo {password} | sudo -S pip3 install git+https://github.com/fbcotter/dataset_loading.git@0.0.4#egg=dataset_loading'
+```
+
+- Existing
+
+bash```
+! sshpass -p {password} ssh -t {username}@{ip} -p {port} 'cd {target_dir_pynq}; echo {password} | sudo -S python3.6 validate.py --dataset mnist --batchsize 1000'
+```
+
+- Replace with
+
 ```bash
 ! ssh -t {username}@{ip} -p {port} 'cd {target_dir_pynq}; echo {password} | sudo -S python3.6 validate.py --dataset mnist --batchsize 1000'
 ```
