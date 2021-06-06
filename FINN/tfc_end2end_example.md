@@ -59,7 +59,7 @@ Now you need to add yourself to the docker group. This can be done by
 sudo usermod -aG docker ${USER}
 ```
 
-After doing this you need to log out and log back in so that your group membership is re-evaluated. You can simply close the session and re-open, if you use PuTTY.
+After doing this you need to log out and log back in so that your group membership is re-evaluated. You can simply close and re-open the PuTTY session window for this to happen.
 
 ### 2.3 Clone the repository
 
