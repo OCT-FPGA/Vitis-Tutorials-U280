@@ -290,7 +290,7 @@ model.save(build_dir + "/tfc_w1_a1_pynq_deploy.onnx")
 - Replace with
 
 ```bash
-! ssh -t {username}@{ip} -p {port} 'cd {target_dir_pynq}; echo {password} | sudo -S python3.6 validate.py --dataset mnist --batchsize 1000'
+! ssh -t {username}@{ip} -p {port} 'cd {target_dir_pynq}; echo {password} | python3.6 validate.py --dataset mnist --batchsize 1000 --bitfile a.xclbin --platform alveo'
 ```
 
 After making these changes, save the notebook, click the top cell as shown, and execute cell-by-cell by clicking "Run".
@@ -307,7 +307,7 @@ This step will require several hours (estimated 6-7 hours) to complete. You can 
 
 ### Tools
 
-- XRT 2020.1 (already installed on the Cloudlab image) 
+- XRT 2020.1 or 2020.1.1 (already installed on the Cloudlab image) 
 - Bitstring
 - Pynq
 - Conda
@@ -336,7 +336,7 @@ pip3 install pynq
 
 ### Install Anaconda
 
-[This guide](https://pynq.readthedocs.io/en/v2.5.1/getting_started/alveo_getting_started.html) provides instructions on how to install anaconda. Do the following. Go with the default selection, when prompted.
+[This guide](https://pynq.readthedocs.io/en/v2.5.1/getting_started/alveo_getting_started.html) provides instructions on how to install anaconda. Do the following. Go with the defaults, when prompted.
 
 ```bash
 wget https://repo.anaconda.com/archive/Anaconda3-2019.10-Linux-x86_64.sh
