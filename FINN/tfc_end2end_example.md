@@ -158,7 +158,7 @@ export PLATFORM_REPO_PATHS="/opt/xilinx/platforms"
 
 ### 2.5 Launch the notebook
 
-Before running the notebook, you can optionally set the parameter ```NUM_DEFAULT_WORKERS``` to control the degree of parallelization used in transformations. Setting this to 0 will use all of the available CPU cores, and happens to be the best option in terms of speed. The transformation ```VitisBuild``` is the most time consuming one which approximately 7 hrs to execute when ```NUM_DEFAULT_WORKERS=1```, and 5 hrs when ```NUM_DEFAULT_WORKERS=0```. After setting this paramter, enter the following command to run docker and launch the jupyter notebook in a web browser. If this is your first time running, this could take a few minutes to complete because several packages required for the docker image will be downloaded and installed during the image creation process.
+Before running the notebook, you can optionally set the parameter ```NUM_DEFAULT_WORKERS``` to control the degree of parallelization used in transformations. Setting this to 0 will use all of the available CPU cores, and happens to be the best option in terms of speed. The transformation ```VitisBuild``` is the most time consuming one which takes approximately 7 hrs to run when ```NUM_DEFAULT_WORKERS=1```, and 5 hrs when ```NUM_DEFAULT_WORKERS=0```. After setting this paramter, enter the following command to run docker and launch the jupyter notebook in a web browser. If this is your first time running, this could take a few minutes to complete because several packages required for the docker image will be downloaded and installed during the image creation process.
 
 ```bash
 finn$ ./run-docker notebook
@@ -314,7 +314,7 @@ As you run through these steps, you will notice how various intermediate onnx mo
 
 ![plot](images/vitis_build.png)
 
-This step will need several hours (typically 6-7 hours) to complete. You can have this run overnight and continue running through the remaining steps. Make sure you perform the following actions on the target Cloudlab computer before you start FPGA experiments in Section 4; PYNQ deployment.
+This step will need several hours to complete. You can have this run overnight and continue running through the remaining steps. Make sure you perform the following actions on the target Cloudlab computer before you start FPGA experiments in Section 4; PYNQ deployment.
 
 ## 3 Target platform (Cloudlab)
 
