@@ -1,13 +1,13 @@
 # TFC End-to-End Example Using Alveo U280 
 
-This tutorial provides step-by-step instructions to run [FINN TFC End-to-End example](https://github.com/Xilinx/finn/blob/master/notebooks/end2end_example/bnn-pynq/tfc_end2end_example.ipynb) using MOC and Cloudlab. MOC is used as the development platform. Cloudlab is used as the target platform which hosts Alveo U280 accelerator cards. The FINN example in the Xilinx repository has been originally designed for Pynq devices, and the support for Alveos is fairly recent. Therefore, you will need to make certain changes in some of the files to get this to work on Alevo. This is a lengthy tutorial. You should pay careful attention to every detail, or you may not be able to get this to work on FPGA hardware.   
-
-Please take a look at [this guide](https://github.com/OCT-FPGA/Vitis-Tutorials-U280/blob/master/FINN/issues-and-fixes.md) for issues and fixes. 
+This tutorial provides step-by-step instructions to run [FINN TFC End-to-End example](https://github.com/Xilinx/finn/blob/master/notebooks/end2end_example/bnn-pynq/tfc_end2end_example.ipynb) using MOC and Cloudlab. MOC is used as the development platform. Cloudlab is used as the target platform which hosts Alveo U280 accelerator cards. The FINN example in the Xilinx repository has been originally designed for Pynq devices, and the support for Alveos is fairly recent. Therefore, you will need to make certain changes in some of the files to get this to work on Alevo. This is a lengthy tutorial. You should pay careful attention to every detail, or you may not be able to get this to work on FPGA hardware.    
 
 ## 1. Prerequisites
 - An MOC instance should be created by following [this tutorial](https://github.com/OCT-FPGA/oct-tutorials/blob/main/mocsetup/instancesetup.md). You should select the boot image ```vitis20201a-xdma``` when creating the instance.  Note that you will also need a GUI to run through the complete example because there is a jupyter notebook that needs to be run as you move forward. Instructions on how to get GUI access using VNC and SSH can be found [here](https://github.com/OCT-FPGA/oct-tutorials/blob/main/vncsshsetup/README.md). A web browser is also needed. If you don't have one already, you can install firefox by running ```sudo apt install firefox```.
 
 - A Cloudlab experiment should be created. This is required for targeting on the U280 in Cloudlab. Instructions are given [here](https://github.com/OCT-FPGA/oct-tutorials/tree/main/cloudlab-setup). Note that you don't need to set up the experiment until you reached section 4 of the notebook; PYNQ deployment. The Cloudlab experiment is needed only for the targeting workflow. This workflow has been tested and verified to work on Xilinx RunTime (XRT) versions 2020.1 and 2020.1.1. Other versions may also work, but not tested. So, you may select a Cloudlab profile such as ```pc151-fpga-xrt-2020.1```, ```pc151-fpga-xrt-2020.1.1```, ```pc153-fpga-xrt-2020.1```, ```pc153-fpga-xrt-2020.1.1``` when creating the experiment.  
+
+Please take a look at [this guide](https://github.com/OCT-FPGA/Vitis-Tutorials-U280/blob/master/FINN/issues-and-fixes.md) for issues and fixes. You may need to apply some of these fixes before you start running the notebook.
 
 ## 2. Development platform (MOC)
 
