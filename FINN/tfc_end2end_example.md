@@ -11,7 +11,7 @@ Please take a look at [this guide](https://github.com/OCT-FPGA/Vitis-Tutorials-U
 
 ## 2. Development Platform (MOC)
 
-### 2. 1 Tools
+### 2.1 Tools
 
 - Vitis 2020.1 (already installed on your MOC boot image)
 - Jupyter Notebook
@@ -83,7 +83,7 @@ finn/notebooks/end2end_example/bnn-pynq/tfc_end2end_example.ipynb
 
 Skip to Section 2.3.2 if you have done so.
 
-#### 2.3 1 Dockerfile
+#### 2.3.1 Dockerfile
 
 Add the following lines to the file ```finn/docker/Dockerfile.finn_dev``` after the line ```WORKDIR /workspace```. It may also be fine to add these at the beginning of this file. This will install OpenSSL in your docker image which is required to build the bitstream. 
 
