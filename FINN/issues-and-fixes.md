@@ -10,11 +10,13 @@ Follow [this guide](https://www.digitalocean.com/community/questions/how-to-fix-
 
 - Issue
 
-You get the error ```start () got an unexpected keyword argument 'port'``` when trying to visualize using Netron. 
+You get the error ```start () got an unexpected keyword argument 'port'``` when trying to visualize in Netron. 
 
 - Fix
 
- In ```finn/src/finn/util/visualization.py``` replace ```netron.start(model_filename, port=8081, host="0.0.0.0")``` with ```netron.start(model_filename, address=("0.0.0.0", 8081))```
+The fix is in the development branch. For now, what you can do is:
+
+In ```finn/src/finn/util/visualization.py``` replace ```netron.start(model_filename, port=8081, host="0.0.0.0")``` with ```netron.start(model_filename, address=("0.0.0.0", 8081))```
  
  - Issue
 
