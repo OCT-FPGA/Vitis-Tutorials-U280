@@ -102,7 +102,6 @@ WORKDIR /workspace
 Create a directory named named ```ssh_keys``` in ```finn``` base directory.
 ```bash
 finn$ mkdir ssh_keys
-cd ssh_keys
 ```
 Generate an SSH key pair 
 
