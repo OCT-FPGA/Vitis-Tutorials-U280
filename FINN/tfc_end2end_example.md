@@ -167,7 +167,7 @@ After the docker image build is completed, right click the URL and open the link
 Then, go to the directory end2end_example &#8594; bnn-pynq, and click the notebook ```tfc_end2end_example.ipynb```.
 ![plot](images/tfc_end2end.png)
 
-After you opened the notebook, make the following changes.
+After you have opened the notebook, make the following changes. Note: If you have already replaced the notebook with the file that includes these changes, you may skip to Section 2.6.
 
 - Replace
 ```bash
