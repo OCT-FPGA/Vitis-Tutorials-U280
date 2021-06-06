@@ -67,7 +67,7 @@ After doing this you need to log out and log back in so that your group membersh
 git clone https://github.com/Xilinx/finn
 ```
 
-Now you need to do several changes in the docker file as well as in the notebook before being able to run the example. You will also need to set up an SSH key. If you don't want to spend time on making these changes, you can download [the dockerfile and the notebook](https://github.com/OCT-FPGA/Vitis-Tutorials-U280/tree/master/FINN/code) in this repository and replace the original files in the Xilinx repository that you have already cloned.
+Now you need to do several changes in the docker file as well as in the notebook before being able to run the example. If you don't want to spend time on making these changes, you can download [the dockerfile and the notebook](https://github.com/OCT-FPGA/Vitis-Tutorials-U280/tree/master/FINN/code) in this repository and replace the original files in the Xilinx repository that you have already cloned.
 
 Docker file location:
 
@@ -134,11 +134,11 @@ If the finn base directory is in your home directory, the ssh key location will 
 Enter file in which to save the key (/home/ubuntu/.ssh/id_rsa): /home/ubuntu/finn/ssh_keys/id_rsa
 ```
 
-You can optionally include a key passphrase for added security, or press enter twice to generate a key pair. You will now see a private key (```id_rsa```) and a public key (```id_rsa.pub```) in this directory. You only need the private key on MOC. The contents of the public key should be copied to the the file```authorized_keys``` in your Cloudlab computer for you to be able to log in to the Cloudlab computer from MOC. If there are existing keys in ```authorized_keys``` (there should be), you can append the public key after the last key in the file. The destination file location is ```<Your Cloudlab IP>:/home/<user name>/.ssh/authorized_keys```. If you haven't set up the Cloudlab server yet, keep in mind that this should be done before you run the application on the FPGA. 
+You can optionally set a key passphrase for added security, or keep pressing enter to generate a key pair. You will now see a private key (```id_rsa```) and a public key (```id_rsa.pub```) in this directory. You only need the private key on MOC. The public key should be appended to the the file ```authorized_keys``` in your Cloudlab computer for you to be able to log in to the Cloudlab computer from MOC. The destination file location is ```<Your Cloudlab IP>:/home/<Your Cloudlab Username>/.ssh/authorized_keys```. If you haven't set up the Cloudlab server yet, that is fine. But keep in mind that this should be done before you start to run the targeting workflow on the FPGA. 
 
 ### 2.4 Set up the environment
 
-The following environment variables need to be set before running the example. These can be set either on a terminal or your local .bashrc file.
+The following environment variables need to be set before running the example. These can be set either using a terminal or your local .bashrc file.
 
 ```bash
 XILINX_XRT
@@ -158,7 +158,7 @@ export PLATFORM_REPO_PATHS="/opt/xilinx/platforms"
 
 ### 2.5 Launch the notebook
 
-Enter the following command to run docker and launch the notebook. If this is your first time running, this could take a few minutes to complete because several packages required for the docker image will be downloaded and installed during the image creation process.
+Enter the following command to run docker and launch the jupyter notebook in a web browser. If this is your first time running, this could take a few minutes to complete because several packages required for the docker image will be downloaded and installed during the image creation process.
 
 ```bash
 finn$ ./run-docker notebook
