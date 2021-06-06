@@ -67,7 +67,7 @@ After doing this you need to log out and log back in so that your group membersh
 git clone https://github.com/Xilinx/finn
 ```
 
-Now you need to do several changes in the docker file as well as in the notebook before being able to run the example. You will also need to set up an SSH key. If you don't want to spend time on making these changes, you can download the dockerfile and the notebook in this repository and replace the original files in the Xilinx repository that you have already cloned.
+Now you need to do several changes in the docker file as well as in the notebook before being able to run the example. You will also need to set up an SSH key. If you don't want to spend time on making these changes, you can download [the dockerfile and the notebook](https://github.com/OCT-FPGA/Vitis-Tutorials-U280/tree/master/FINN/code) in this repository and replace the original files in the Xilinx repository that you have already cloned.
 
 Docker file location:
 
