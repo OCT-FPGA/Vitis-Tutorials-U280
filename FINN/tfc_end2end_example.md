@@ -5,9 +5,9 @@ This tutorial provides step-by-step instructions to run [FINN TFC End-to-End exa
 Please take a look at [this guide](https://github.com/OCT-FPGA/Vitis-Tutorials-U280/blob/master/FINN/issues-and-fixes.md) for issues and fixes. 
 
 ## 1. Prerequisites
-- An MOC instance should be created by following [this tutorial](https://github.com/OCT-FPGA/oct-tutorials/blob/main/mocsetup/instancesetup.md). You should select the boot image ```vitis20201a-xdma``` when creating the instance.  Note that you will also need a GUI to run through the complete example because there is a jupyter notebook that needs to be run. Instructions on how to get GUI access using VNC and SSH can be found [here](https://github.com/OCT-FPGA/oct-tutorials/blob/main/vncsshsetup/README.md).
+- An MOC instance should be created by following [this tutorial](https://github.com/OCT-FPGA/oct-tutorials/blob/main/mocsetup/instancesetup.md). You should select the boot image ```vitis20201a-xdma``` when creating the instance.  Note that you will also need a GUI to run through the complete example because there is a jupyter notebook that needs to be run as you move forward. Instructions on how to get GUI access using VNC and SSH can be found [here](https://github.com/OCT-FPGA/oct-tutorials/blob/main/vncsshsetup/README.md).
 
-- A Cloudlab experiment should be created. This is required for targeting on the U280. Instructions are given [here](https://github.com/OCT-FPGA/oct-tutorials/tree/main/cloudlab-setup). Note that you don't need to set up the experiment until you reached section 4 of the notebook; PYNQ deployment. The Cloudlab experiment is needed only for the targeting workflow. The workflow has been tested on XRT versions 2020.1 and 2020.1.1. Other versions may also work, but not tested. So, you may select a profile such as ```pc151-fpga-xrt-2020.1```, ```pc151-fpga-xrt-2020.1.1```, ```pc153-fpga-xrt-2020.1```, ```pc153-fpga-xrt-2020.1.1``` when creating the experiment.  
+- A Cloudlab experiment should be created. This is required for targeting on the U280 in Cloudlab. Instructions are given [here](https://github.com/OCT-FPGA/oct-tutorials/tree/main/cloudlab-setup). Note that you don't need to set up the experiment until you reached section 4 of the notebook; PYNQ deployment. The Cloudlab experiment is needed only for the targeting workflow. This workflow has been tested and verified to work on Xilinx RunTime (XRT) versions 2020.1 and 2020.1.1. Other versions may also work, but not tested. So, you may select a Cloudlab profile such as ```pc151-fpga-xrt-2020.1```, ```pc151-fpga-xrt-2020.1.1```, ```pc153-fpga-xrt-2020.1```, ```pc153-fpga-xrt-2020.1.1``` when creating the experiment.  
 
 ## 2. Development platform (MOC)
 
@@ -19,7 +19,7 @@ Please take a look at [this guide](https://github.com/OCT-FPGA/Vitis-Tutorials-U
 
 ### 2.2 Install docker
 
-Docker installation instructions for Ubuntu can be found [here](https://docs.docker.com/engine/install/ubuntu/). The following commands were taken from this link, and need to be run in the order. They are slightly modified from the original to get past the prompts during package installation.
+Docker installation instructions for Ubuntu can be found [here](https://docs.docker.com/engine/install/ubuntu/). The following commands were taken from this link, and need to be run in order. These commands are slightly modified from those in the original, so that you can get past the prompts during package installation.
 
 ```bash
 sudo apt-get remove docker docker-engine docker.io containerd runc
@@ -59,7 +59,7 @@ Now you need to add yourself to the docker group. This can be done by
 sudo usermod -aG docker ${USER}
 ```
 
-After doing this you need to log out and log back in so that your group membership is re-evaluated. You can simply close and re-open the PuTTY session window for this to happen.
+After doing this you need to log out and log back in so that your group membership is re-evaluated. 
 
 ### 2.3 Clone the repository
 
@@ -114,6 +114,7 @@ WORKDIR /workspace
 #### 2.3.2 SSH key
 
 Create a directory named named ```ssh_keys``` in ```finn``` base directory.
+
 ```bash
 finn$ mkdir ssh_keys
 ```
@@ -147,6 +148,7 @@ PLATFORM_REPO_PATHS
 ```
 
 These variables can be set by
+
 ```bash
 source /opt/xilinx/xrt/setup.sh
 export VITIS_PATH="/tools/Xilinx/Vitis/2020.1"
@@ -169,7 +171,7 @@ Then, go to the directory end2end_example &#8594; bnn-pynq, and click the notebo
 
 After you have opened the notebook, make the following changes. Note: If you have already replaced the notebook with the file that includes these changes, you may skip to Section 2.6.
 
-- Replace
+Replace
 ```bash
 # print the names of the supported PYNQ boards
 from finn.util.basic import pynq_part_map
@@ -183,7 +185,7 @@ from finn.util.basic import alveo_part_map
 print(alveo_part_map.keys())
 ```
 
-- Replace
+Replace
 ```bash
 # change this if you have a different PYNQ board, see list above
 pynq_board = "Pynq-Z1"
@@ -200,7 +202,7 @@ fpga_part = alveo_part_map[alveo_board]
 target_clk_ns = 10
 ```
 
-- Replace
+Replace
 ```bash
 from finn.transformation.fpgadataflow.make_zynq_proj import ZynqBuild
 model = ModelWrapper(build_dir+"/tfc_w1_a1_set_folding_factors.onnx")
@@ -214,7 +216,7 @@ model = ModelWrapper(build_dir+"/tfc_w1_a1_set_folding_factors.onnx")
 model = model.transform(VitisBuild(fpga_part = fpga_part, period_ns = target_clk_ns, platform = "xilinx_u280_xdma_201920_3"))
 
 ```
-- Replace
+Replace
 ```bash
 ! ls {model.get_metadata_prop("vivado_pynq_proj")}
 ```
@@ -224,7 +226,7 @@ with
 ! ls {model.get_metadata_prop("vitis_link_proj")}
 ```
 
-- Replace
+Replace
 ```bash
 from finn.transformation.fpgadataflow.make_deployment import DeployToPYNQ
 ip = "192.168.2.99"
@@ -241,7 +243,7 @@ with
 from finn.transformation.fpgadataflow.make_deployment import DeployToPYNQ
 ip = "<Your Cloudlab IP>"
 port = "22"
-username = "Your Cloudlab Username"
+username = "<Your Cloudlab Username>"
 password = ""
 target_dir = "/users/<Your Cloudlab Username>/finn_tfc_end2end_example"
 model = model.transform(DeployToPYNQ(ip, port, username, password, target_dir))
@@ -249,7 +251,7 @@ model.save(build_dir + "/tfc_w1_a1_pynq_deploy.onnx")
 
 ```
 
-- Replace
+Replace
 ```bash
 ! sshpass -p {password} ssh {username}@{ip} -p {port} 'ls -l {target_dir_pynq}'
 ```
@@ -259,7 +261,7 @@ with
 ! ssh {username}@{ip} -p {port} 'ls -l {target_dir_pynq}'
 ```
 
-- Replace
+Replace
 ```bash
 ! sshpass -p {password} ssh -t {username}@{ip} -p {port} 'echo {password} | sudo -S pip3 install git+https://github.com/fbcotter/dataset_loading.git@0.0.4#egg=dataset_loading'
 ```
@@ -271,7 +273,7 @@ with
 
 ```
 
-- Replace
+Replace
 ```bash
 ! sshpass -p {password} ssh -t {username}@{ip} -p {port} 'cd {target_dir_pynq}; echo {password} | sudo -S python3.6 validate.py --dataset mnist --batchsize 1000'
 ```
@@ -281,7 +283,7 @@ with
 ! ssh -t {username}@{ip} -p {port} 'cd {target_dir_pynq}; echo {password} | sudo -S python3.6 validate.py --dataset mnist --batchsize 1000'
 ```
 
-- Replace
+Replace
 ```bash
 ! sshpass -p {password} ssh -t {username}@{ip} -p {port} 'echo {password} | sudo -S pip3 install git+https://github.com/fbcotter/dataset_loading.git@0.0.4#egg=dataset_loading'
 ```
@@ -291,7 +293,7 @@ with
 ! ssh -t {username}@{ip} -p {port} 'echo {password} | sudo -S pip3 install git+https://github.com/fbcotter/dataset_loading.git@0.0.4#egg=dataset_loading'
 ```
 
-- Replace
+Replace
 ```bash
 ! sshpass -p {password} ssh -t {username}@{ip} -p {port} 'cd {target_dir_pynq}; echo {password} | sudo -S python3.6 validate.py --dataset mnist --batchsize 1000'
 ```
@@ -300,19 +302,19 @@ with
 ```bash
 ! ssh -t {username}@{ip} -p {port} 'cd {target_dir_pynq}; echo {password} | python3.6 validate.py --dataset mnist --batchsize 1000 --bitfile a.xclbin --platform alveo'
 ```
-After making these changes, save the notebook.
+Save the notebook after making these changes.
 
 ### 2.6 Run the notebook
 
-Click the top cell as shown, and execute cell-by-cell by clicking "Run". 
+Click the top cell as shown in the figure, and execute cell-by-cell by clicking "Run". 
 
 ![plot](images/run_cell.png)
 
-As you run through these steps, you will also be able to visualize intermediate onnx models by using Nutron. Run the notebook until the ```VitisBuild``` step. 
+As you run through these steps, you will notice how various intermediate onnx models getting generated. You will also be able to see these models by using Netron, a tool used to visualize neural network models. Run the notebook until the ```VitisBuild``` step. 
 
 ![plot](images/vitis_build.png)
 
-This step will require several hours (estimated 6-7 hours) to complete. You can have this run overnight and continue running next steps. Make sure you perform the following steps on the target Cloudlab computer before you start FPGA experiments shown in the notebook.
+This step will need several hours (typically 6-7 hours) to complete. You can have this run overnight and continue running through the remaining steps. Make sure you perform the following actions on the target Cloudlab computer before you start FPGA experiments in Section 4; PYNQ deployment.
 
 ## 3 Target platform (Cloudlab)
 
