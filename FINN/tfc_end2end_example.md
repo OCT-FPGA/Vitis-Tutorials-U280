@@ -300,7 +300,7 @@ As you run through these steps, you will also be able to visualize intermediate 
 
 ![plot](images/vitis_build.png)
 
-This step will require several hours (estimated 6-7 hours) to complete. You can have this run overnight and continue with next steps. Make sure you perform the following steps on the target Cloudlab computer before you start remote execution.
+This step will require several hours (estimated 6-7 hours) to complete. You can have this run overnight and continue running next steps. Make sure you perform the following steps on the target Cloudlab computer before you start FPGA experiments shown in the notebook.
 
 ## Target Platform (Cloudlab)
 
