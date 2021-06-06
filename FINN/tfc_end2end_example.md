@@ -19,7 +19,7 @@ Please take a look at [this guide](https://github.com/OCT-FPGA/Vitis-Tutorials-U
 
 ### 2.2 Install docker
 
-Docker installation instructions for Ubuntu can be found [here](https://docs.docker.com/engine/install/ubuntu/). The following commands need to be run in the order. They are slightly modified from the original to get past the prompts during package installation.
+Docker installation instructions for Ubuntu can be found [here](https://docs.docker.com/engine/install/ubuntu/). The following commands were taken from this link, and need to be run in the order. They are slightly modified from the original to get past the prompts during package installation.
 
 ```bash
 sudo apt-get remove docker docker-engine docker.io containerd runc
