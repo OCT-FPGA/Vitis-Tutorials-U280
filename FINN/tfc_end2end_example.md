@@ -385,4 +385,6 @@ Continue running through the rest of the steps (after VitisBuild) in your notebo
 
 ## Useful links
 
+- [FINN](https://xilinx.github.io/finn/)
+
 - [FINN Getting Started Guide](https://finn.readthedocs.io/en/latest/getting_started.html)
