@@ -361,4 +361,4 @@ source /opt/xilinx/xrt/setup.sh
 ```
 --->
 
-Then, continue running through the rest of the steps (after VitisBuild) in your notebook.
+After doing these steps, continue running through the rest of the steps (after VitisBuild) in your notebook.
