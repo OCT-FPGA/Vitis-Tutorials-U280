@@ -28,3 +28,20 @@ Replace
 with
 
 ```raw_i = open('/workspace/finn-base/src/finn/data/onnx/mnist-conv/test_data_set_0/input_0.pb','rb').read()```
+
+- Issue
+
+If you try to run the docker container you get the message:
+
+```bash
+docker: Error response from daemon: driver failed programming external connectivity on endpoint dreamy_ellis (7ffe77f92e06d01fd2d390bfc9d5294dab8c73afa94f7b2c23b70ed61338735b): Bind for 0.0.0.0:8888 failed: port is already allocated.
+```
+
+- Fix
+
+Remove the docker container by running
+
+```bash
+docker container ls #this will give the docker container ID
+docker rm -f <docker container ID>
+```
