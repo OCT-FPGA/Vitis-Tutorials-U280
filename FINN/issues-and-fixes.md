@@ -6,7 +6,7 @@ Got permission denied while trying to connect to the Docker daemon socket
 
 - Fix
 
-Follow [this guide](https://www.digitalocean.com/community/questions/how-to-fix-docker-got-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket). Make sure you have been added to the docker group. You must be logged out and logged back in after adding to the docker group.
+Follow [this guide](https://www.digitalocean.com/community/questions/how-to-fix-docker-got-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket). Make sure you have been added to the docker group. You must log out and log back in after adding yourself to the docker group.
 
 - Issue
 
