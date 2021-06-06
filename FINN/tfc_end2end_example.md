@@ -313,7 +313,7 @@ This step will require several hours (estimated 6-7 hours) to complete. You can 
 
 Before you start remote execution, make sure that you perform the following steps on the Cloudlab computer.
 
-Append the public key you previously generated in MOC into ~/.ssh/authorized_keys if you haven't done so already.
+Append the public key you previously generated (id_rsa.pub) in MOC into ~/.ssh/authorized_keys if you haven't done so already.
 
 <!---### Install bitstring
 ```bash
