@@ -379,7 +379,7 @@ source /opt/xilinx/xrt/setup.sh
 
 ## 4. All set for FPGA targeting
 
-Once you have made the required changes in the target side, you should be in good shape to continue running the notebook from where you left off, run on the FPGA and get results.
+Once you have made the required changes in the target side, you are in good shape to continue running the notebook from where you left off, run the bitstream on the FPGA and read the results.
 
 Continue running through the rest of the steps (after VitisBuild) in your notebook.
 
