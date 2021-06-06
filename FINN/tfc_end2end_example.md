@@ -9,7 +9,7 @@ Please take a look at [this guide](https://github.com/OCT-FPGA/Vitis-Tutorials-U
 
 - A Cloudlab experiment should be created. This is required for targeting on the U280. Instructions are given [here](https://github.com/OCT-FPGA/oct-tutorials/tree/main/cloudlab-setup). Note that you don't need to set up the experiment until you reached section 4 of the notebook; PYNQ deployment. The Cloudlab experiment is needed only for the targeting workflow. The workflow has been tested on XRT versions 2020.1 and 2020.1.1. Other versions may also work, but not tested. So, you may select a profile such as ```pc151-fpga-xrt-2020.1```, ```pc151-fpga-xrt-2020.1.1```, ```pc153-fpga-xrt-2020.1```, ```pc153-fpga-xrt-2020.1.1``` when creating the experiment.  
 
-## 2. Development Platform (MOC)
+## 2. Development platform (MOC)
 
 ### 2.1 Tools
 
@@ -314,7 +314,7 @@ As you run through these steps, you will also be able to visualize intermediate 
 
 This step will require several hours (estimated 6-7 hours) to complete. You can have this run overnight and continue running next steps. Make sure you perform the following steps on the target Cloudlab computer before you start FPGA experiments shown in the notebook.
 
-## 3 Target Platform (Cloudlab)
+## 3 Target platform (Cloudlab)
 
 ### 3.1 Tools
 
@@ -333,7 +333,7 @@ pip install bitstring
 ```
 --->
 
-### 3.2 Install Bitstring and Pynq
+### 3.2 Install bitstring and pynq
 
 Install these packages. Go with the default selection, when prompted.
 
@@ -347,7 +347,7 @@ pip3 install pynq
 
 ```
 
-### 3.3 Install Anaconda
+### 3.3 Install anaconda
 
 [This guide](https://pynq.readthedocs.io/en/v2.5.1/getting_started/alveo_getting_started.html) provides instructions on how to install anaconda. Do the following. Go with the defaults, when prompted.
 
