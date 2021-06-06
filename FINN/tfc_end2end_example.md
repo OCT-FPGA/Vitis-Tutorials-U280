@@ -113,7 +113,7 @@ WORKDIR /workspace
 
 #### 2.3.2 SSH key
 
-Create a directory named named ```ssh_keys``` in ```finn``` base directory.
+Create a directory named ```ssh_keys``` in ```finn``` base directory.
 
 ```bash
 finn$ mkdir ssh_keys
