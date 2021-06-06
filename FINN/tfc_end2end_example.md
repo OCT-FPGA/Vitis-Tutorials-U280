@@ -364,3 +364,7 @@ source /opt/xilinx/xrt/setup.sh
 --->
 
 After doing these steps, continue running through the rest of the steps (after VitisBuild) in your notebook.
+
+## Useful links
+
+- [FINN Getting Started Guide](https://finn.readthedocs.io/en/latest/getting_started.html)
