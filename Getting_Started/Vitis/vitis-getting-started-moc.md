@@ -40,7 +40,14 @@ export PLATFORM_REPO_PATHS=/opt/xilinx/platforms/xilinx_u280_xdma_201920_3/
 export LIBRARY_PATH=/usr/lib/x86_64-linux-gnu
 ```
 
-These ```source``` and ```export``` commands can be included in the the user's .bashrc file located in the home directory (```~/.bashrc```), so you won't have to repeat these steps every time you log in.
+These ```source``` and ```export``` commands can be included in the the user's .bashrc file located in the home directory (```~/.bashrc```), so you won't have to repeat these steps every time you log in. You should include them below the following statement.
+
+```bash
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+```
 
 ## Build and run
 
