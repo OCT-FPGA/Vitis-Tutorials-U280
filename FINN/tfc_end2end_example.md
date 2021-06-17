@@ -158,7 +158,7 @@ export PLATFORM_REPO_PATHS="/opt/xilinx/platforms"
 
 ### 2.5 Launch the notebook
 
-Before running the notebook, you can optionally set the parameter ```NUM_DEFAULT_WORKERS``` to control the degree of parallelization used in transformations. Setting this to 0 will use all of the available CPU cores, and happens to be the best option in terms of speed. The transformation ```VitisBuild``` is the most time consuming one which takes approximately 7 hrs to run when ```NUM_DEFAULT_WORKERS=1```, and 5 hrs when ```NUM_DEFAULT_WORKERS=0```. After setting this paramter, enter the following command to run docker and launch the jupyter notebook in a web browser. If this is your first time running, this could take a few minutes to complete because several packages required for the docker image will be downloaded and installed during the image creation process.
+Before running the notebook, you can optionally set the parameter ```NUM_DEFAULT_WORKERS``` to control the degree of parallelization used in transformations. Setting this to 0 will use all of the available CPU cores, and happens to be the best option in terms of speed. The transformation ```VitisBuild``` is the most time consuming one which takes approximately 7 hrs to run when ```NUM_DEFAULT_WORKERS=1```, and 5 hrs when ```NUM_DEFAULT_WORKERS=0``` on a ```c1.xlarge``` instance. After setting this paramter, enter the following command to run docker and launch the jupyter notebook in a web browser. If this is your first time running, this could take a few minutes to complete because several packages required for the docker image will be downloaded and installed during the image creation process.
 
 ```bash
 finn$ ./run-docker notebook
