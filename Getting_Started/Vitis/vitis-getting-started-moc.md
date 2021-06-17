@@ -113,7 +113,7 @@ INFO: [HW-EM 06-1] All the simulator processes exited successfully
 
 ### Hardware
 
-The last step is to build the application to run on actual U280 hardware. Note that hardware build can take a long time. 
+The last step is to build the application to run on actual U280 hardware. Note that hardware build can take several hours to complete. You can optionally set the number of jobs to run in order to reduce the build time. For example if you pass ```--jobs 8```, eight jobs will run simultaneously in the build process. This parameter needs to be chosen by taking into account the number of CPU cores that your instance has.   
 
 ```bash
 cd ../hw
