@@ -120,7 +120,7 @@ cd ../hw
 
 g++ -Wall -g -std=c++11 ../../src/host.cpp -o app.exe -I${XILINX_XRT}/include/ -L${XILINX_XRT}/lib/ -lOpenCL -lpthread -lrt -lstdc++
 v++ -c -t hw --config ../../src/u280.cfg -k vadd -I../../src ../../src/vadd.cpp -o vadd.xo 
-v++ -l -t hw --config ../../src/u280.cfg ./vadd.xo -o vadd.xclbin
+v++ -l -t hw --config ../../src/u280.cfg ./vadd.xo -o vadd.xclbin # optionally pass <--jobs <NUM_OF_JOBS>> here.
 ```
 To run the application on hardware, you need to copy app.exe and vadd.xclbin to the Cloudlab server which hosts the U280. For this, you need to have the private key of the Cloudlab server stored on MOC. 
 
