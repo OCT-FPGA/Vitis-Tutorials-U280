@@ -275,16 +275,6 @@ with
 
 Replace
 ```bash
-! sshpass -p {password} ssh -t {username}@{ip} -p {port} 'cd {target_dir_pynq}; echo {password} | sudo -S python3.6 validate.py --dataset mnist --batchsize 1000'
-```
-
-with
-```bash
-! ssh -t {username}@{ip} -p {port} 'cd {target_dir_pynq}; echo {password} | sudo -S python3.6 validate.py --dataset mnist --batchsize 1000'
-```
-
-Replace
-```bash
 ! sshpass -p {password} ssh -t {username}@{ip} -p {port} 'echo {password} | sudo -S pip3 install git+https://github.com/fbcotter/dataset_loading.git@0.0.4#egg=dataset_loading'
 ```
 
@@ -300,7 +290,7 @@ Replace
 
 with
 ```bash
-! ssh -t {username}@{ip} -p {port} 'cd {target_dir_pynq}; echo {password} | python3.6 validate.py --dataset mnist --batchsize 1000 --bitfile a.xclbin --platform alveo'
+! ssh -t {username}@{ip} -p {port} 'cd {target_dir_pynq}; source /opt/xilinx/xrt/setup.sh; echo {password} | python3.6 validate.py --dataset mnist --batchsize 1000 --bitfile a.xclbin --platform alveo'
 ```
 Save the notebook after making these changes.
 
