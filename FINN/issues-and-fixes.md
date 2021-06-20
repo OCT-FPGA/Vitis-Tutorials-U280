@@ -47,3 +47,11 @@ Remove the docker container by running
 docker container ls #this will give the docker container ID
 docker rm -f <docker container ID>
 ```
+
+- Issue
+
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/prune: dial unix /var/run/docker.sock: connect: permission denied
+
+- Fix
+
+https://stackoverflow.com/questions/51342810/how-to-fix-dial-unix-var-run-docker-sock-connect-permission-denied-when-gro
