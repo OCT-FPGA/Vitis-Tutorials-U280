@@ -122,14 +122,14 @@ g++ -Wall -g -std=c++11 ../../src/host.cpp -o app.exe -I${XILINX_XRT}/include/ -
 v++ -c -t hw --config ../../src/u280.cfg -k vadd -I../../src ../../src/vadd.cpp -o vadd.xo 
 v++ -l -t hw --config ../../src/u280.cfg ./vadd.xo -o vadd.xclbin # optionally pass <--jobs <NUM_OF_JOBS>> here.
 ```
-To run the application on hardware, you need to copy app.exe and vadd.xclbin to the Cloudlab server which hosts the U280. For this, you need to have the private key of the Cloudlab server stored on MOC. 
+To run the application on hardware, you need to copy app.exe and vadd.xclbin to the CloudLab server which hosts the U280. For this, you need to have the private key of the CloudLab server stored on MOC. 
 
-#### Setting up the Cloudlab private key
+#### Setting up the CloudLab private key
 
-You should already have a private key to access the Cloudlab server from your home computer. This key can be stored on MOC, so that you can connect to Cloudlab from MOC. Make sure that you use the OpenSSH format of the private key instead of .ppk for both MOC and Cloudlab. [This guide](https://github.com/OCT-FPGA/oct-tutorials/blob/main/key-conversion/key-conversion.md) shows how to convert a PuTTY .ppk private key to OpenSSH format. If you use Windows, the following command in the command prompt will copy this key to MOC.
+You should already have a private key to access the CloudLab server from your home computer. This key can be stored on MOC, so that you can connect to CloudLab from MOC. Make sure that you use the OpenSSH format of the private key instead of .ppk for both MOC and CloudLab. [This guide](https://github.com/OCT-FPGA/oct-tutorials/blob/main/key-conversion/key-conversion.md) shows how to convert a PuTTY .ppk private key to OpenSSH format. If you use Windows, the following command in the command prompt will copy this key to MOC.
 
 ```bash
-scp -i <path to MOC private key (OpenSSH)> <path to Cloudlab private key (OpenSSH)> ubuntu@<MOC IP>:~/.ssh/
+scp -i <path to MOC private key (OpenSSH)> <path to CloudLab private key (OpenSSH)> ubuntu@<MOC IP>:~/.ssh/
 ```
 
 Example:
@@ -137,15 +137,15 @@ Example:
 ```bash
 scp -i C:\Users\Suranga\Desktop\keys\moc_openssh C:\Users\Suranga\Desktop\keys\cloudlab_openssh ubuntu@128.31.25.145:~/.ssh/ 
 ```
-After you copied this key to MOC, you should set the appropriate file permissions. Otherwise you won't be able to connect to the Cloudlab server.
+After you copied this key to MOC, you should set the appropriate file permissions. Otherwise you won't be able to connect to the CloudLab server.
 
 ```bash
 chmod 700 ~/.ssh/cloudlab_openssh
 ```
-Now, you can copy all necessary files from MOC to Cloudlab and run programs on the FPGA. We need to copy two files; the bitstream (vadd.xclbin) and the application binary (app.exe). 
+Now, you can copy all necessary files from MOC to CloudLab and run programs on the FPGA. We need to copy two files; the bitstream (vadd.xclbin) and the application binary (app.exe). 
 
 ```bash
-scp -i <path to Cloudlab private key on MOC> vadd.xclbin app.exe <Cloudlab Username>@<Cloudlab IP>:~
+scp -i <path to CloudLab private key on MOC> vadd.xclbin app.exe <CloudLab Username>@<CloudLab IP>:~
 ```
 
 Example:
@@ -158,7 +158,7 @@ Then, depending on your preference, you can choose one of the following two meth
 
 #### 1. Local execution
 
-After copying the files, log in to the Cloudlab server (The instructions for setting up the Cloudlab server for FPGA experiments are available [here](https://github.com/OCT-FPGA/oct-tutorials/tree/main/cloudlab-setup). Make sure that ```XILINX_XRT``` environment variable is set by running
+After copying the files, log in to the CloudLab server (The instructions for setting up the CloudLab server for FPGA experiments are available [here](https://github.com/OCT-FPGA/oct-tutorials/tree/main/cloudlab-setup). Make sure that ```XILINX_XRT``` environment variable is set by running
 
 ```bash
 source /opt/xilinx/xrt/setup.sh
@@ -174,7 +174,7 @@ Then run
 In this approach you can run the following command from within MOC.
 
 ```bash
-ssh -i <path to Cloudlab private key on MOC> <Cloudlab Username>@<Cloudlab IP> "source <path to XRT>; <path to application>"
+ssh -i <path to CloudLab private key on MOC> <CloudLab Username>@<CloudLab IP> "source <path to XRT>; <path to application>"
 ```
 
 Example:
