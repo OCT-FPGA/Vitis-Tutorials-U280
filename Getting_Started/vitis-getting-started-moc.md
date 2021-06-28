@@ -10,11 +10,11 @@ Xilinx Vitis 2020.1 or 2020.2
 
 ## Prerequisites
 
-It is assumed that the user has already followed [these instructions](https://github.com/OCT-FPGA/oct-tutorials/blob/main/mocsetup/instancesetup.md) to create an MOC instance and booted it up. This is a one time process. Once your instance is created, it will remain active unless you manually delete it using the MOC web interface. Whenever you want to log in to this instance, you can do so by using any SSH client like PuTTY, and entering information such as IP address and SSH private key etc. Refer to [Set up SSH access](https://github.com/OCT-FPGA/oct-tutorials/tree/main/vncsshsetup#1-set-up-ssh-access) for details. It is highly recommended that you [Set up VNC](https://github.com/OCT-FPGA/oct-tutorials/tree/main/vncsshsetup#2-set-up-vnc) to successfully complete the tutorial. The reason for this is that if you use just PuTTY to run build commands, and in case the PuTTY session gets disconnected while the build is running, the build process will be interrupted, and you won't get the bitstream. Using VNC is considered safe due to this reason.  
+It is assumed that the user has already followed [these instructions](https://github.com/OCT-FPGA/oct-tutorials/blob/main/mocsetup/instancesetup.md) to create an MOC instance and booted it up. This is a one time process. Once your instance is created, it will remain active unless you delete it using the MOC web interface or OpenStack CLI. Whenever you want to log in to this instance, you can do so by entering information such as IP address and SSH private key using any SSH client such has PuTTY. Refer to [Set up SSH access](https://github.com/OCT-FPGA/oct-tutorials/tree/main/vncsshsetup#1-set-up-ssh-access) for details on how to do this. It is highly recommended that you [set up VNC access](https://github.com/OCT-FPGA/oct-tutorials/tree/main/vncsshsetup#2-set-up-vnc) to successfully complete this tutorial. The reason for this is that if you use just PuTTY to run Vitis build commands, and your PuTTY session gets disconnected while the build is running, the build process will get interrupted, and you will have to start over. Using VNC is considered safe because theh build process will run uninterrupted regardless of the status of the PuTTY session.
 
 ## Clone the repository
 
-Open up a terminal on the booted MOC instance and enter the following command to clone the repository.
+The first step is to open up a terminal in the booted MOC instance and enter the following command to clone the repository.
 
 ```bash
 git clone https://github.com/OCT-FPGA/Vitis-Tutorials-U280.git
@@ -22,25 +22,26 @@ git clone https://github.com/OCT-FPGA/Vitis-Tutorials-U280.git
 
 ## Setting up the environment
 
-* To configure the environment to run Vitis, source the following scripts:
+* To configure the environment to run Vitis commands, run the following shell commands.
 
 ```bash
 source /tools/Xilinx/Vitis/2020.1/settings64.sh
 source /opt/xilinx/xrt/setup.sh
 ```
 
-* Then make sure the following environment variable is correctly set to point to the your U280 platform installation directory.
+* Also make sure that ```PLATFORM_REPO_PATHS``` environment variable is correctly set to point to your U280 platform installation directory.
 
 ```bash
 export PLATFORM_REPO_PATHS=/opt/xilinx/platforms/xilinx_u280_xdma_201920_3/
 ```
 
-* In addition, set the LIBRARY_PATH environment variable.
+* In addition, set the ```LIBRARY_PATH``` environment variable.
+
 ```bash
 export LIBRARY_PATH=/usr/lib/x86_64-linux-gnu
 ```
 
-These ```source``` and ```export``` commands can be included in the the user's .bashrc file located in the home directory (```~/.bashrc```), so you won't have to repeat these steps every time you log in. If you use .bashrc, you should include them below the following statement.
+These ```source``` and ```export``` commands can be included in the the user .bashrc file located in the home directory (```~/.bashrc```), so you won't have to repeat these steps every time you log in to the VM. If you use .bashrc, you should include these commands below the following statement.
 
 ```bash
 case $- in
@@ -51,9 +52,11 @@ esac
 
 ## Build and run
 
-All build and run instructions are based on https://github.com/Xilinx/Vitis-Tutorials/blob/master/Getting_Started/Vitis/Part4.md except for some platform specific changes. If you need to know the details of how build commands work, please refer to the original guilde. 
+All build and run instructions are based on https://github.com/Xilinx/Vitis-Tutorials/blob/master/Getting_Started/Vitis/Part4.md except for some platform specific changes. If you need to know the details of how these commands work, please refer to the original guilde. 
 
 ### Software emulation
+
+Enter the following commands to run software emulation.
 
 ```bash
 cd <Path to the cloned repo>/Getting_Started/Vitis/example/u280/sw_emu
@@ -64,12 +67,15 @@ v++ -c -t sw_emu --config ../../src/u280.cfg -k vadd -I../../src ../../src/vadd.
 v++ -l -t sw_emu --config ../../src/u280.cfg ./vadd.xo -o vadd.xclbin
 ```
 
-After building the software emulation, run the following commands. This will run the application in software emulation mode.
+These commands will create a host application binary (app.exe) and an FPGA binary for software emulation. The next step is to tun the application in software emulation mode.
+
 ```bash
 export XCL_EMULATION_MODE=sw_emu
 ./app.exe
 ```
-You should be able to see the following output if you ran the application successfully.
+
+You should be able to see the following output if the application was run successfully.
+
 ```bash
 INFO: Found Xilinx Platform
 INFO: Loading 'vadd.xclbin'
@@ -89,13 +95,14 @@ v++ -c -t hw_emu --config ../../src/u280.cfg -k vadd -I../../src ../../src/vadd.
 v++ -l -t hw_emu --config ../../src/u280.cfg ./vadd.xo -o vadd.xclbin
 ```
 
-After building the hardware emulation, run the following commands. This will run the application in hardware emulation mode.
+Similar to what you did in software emulation, the the generated executable.
+
 ```bash
 export XCL_EMULATION_MODE=hw_emu
 ./app.exe
 ```
 
-If the application is run successfully, you will see TEST PASSED on the terminal.
+You should be able to see the hardware emulation output on the terminal.
 
 ```bash
 INFO: Found Xilinx Platform
@@ -113,7 +120,7 @@ INFO: [HW-EM 06-1] All the simulator processes exited successfully
 
 ### Hardware
 
-The last step is to build the application to run on actual U280 hardware. Note that hardware build can take several hours to complete. You can optionally set the number of jobs to run in order to reduce the build time. For example if you pass ```--jobs 8```, eight jobs will run simultaneously in the build process. This parameter needs to be chosen by taking into account the number of CPU cores that your instance has.   
+The last step is to build the application to run on actual U280 FPGA hardware. Note that hardware build can take several hours to complete. You can optionally set the number of jobs to run in order to reduce the build time. For example if you set ```--jobs 8``` as an additional argument to the Vitis build command (this is supported in Vitis versions 2020.2 or earlier), eight jobs will run simultaneously in the build process. This parameter needs to be chosen by taking into account the number of CPU cores that your instance has.   
 
 ```bash
 cd ../hw
