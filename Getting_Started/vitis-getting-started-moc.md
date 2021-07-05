@@ -164,4 +164,4 @@ ssh -i ~/.ssh/cloudlab_openssh suranga@pc153.cloudlab.umass.edu "source /opt/xil
 
 ```
 
-Similar to software and hardware emulation result, you should see the output ```TEST PASSED``` on the terminal.
+Similar to software and hardware emulation results, you should see the output ```TEST PASSED``` on the terminal.
