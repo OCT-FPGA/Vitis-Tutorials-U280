@@ -149,27 +149,12 @@ Example:
 scp -i ~/.ssh/cloudlab_openssh app.exe vadd.xclbin suranga@pc153.cloudlab.umass.edu:~
 ```
 
-You can choose one of the following two methods to run the program on FPGA. 
+#### 3.3.2. Run the application
 
-#### 3.3.1. Local execution
-
-After copying the files, log in to the CloudLab node. Make sure that ```XILINX_XRT``` environment variable is set by running
+Running the application on the FPGA involves three steps; (i) SSH to the CloudLab server, (ii) source XRT setup file, (iii) execute the application. This can be done using a single command as shown below.
 
 ```bash
-source /opt/xilinx/xrt/setup.sh
-```
-Then run
-
-```bash
-./app.exe
-```
-
-#### 3.3.2. Remote execution
-
-In this approach you can run the following command from within MOC.
-
-```bash
-ssh -i <path to CloudLab private key on MOC> <CloudLab Username>@<CloudLab IP> "source <path to XRT>; <path to application>"
+ssh -i <path to CloudLab private key on MOC> <CloudLab Username>@<CloudLab IP> "source <path to XRT>; <full path of the application (.exe)>"
 ```
 
 Example:
@@ -179,4 +164,4 @@ ssh -i ~/.ssh/cloudlab_openssh suranga@pc153.cloudlab.umass.edu "source /opt/xil
 
 ```
 
-Similar to software and hardware emulation result, you should see TEST PASSED on the terminal.
+Similar to software and hardware emulation result, you should see the output ```TEST PASSED``` on the terminal.
