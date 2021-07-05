@@ -16,7 +16,7 @@ You should follow [these instructions](https://github.com/OCT-FPGA/oct-tutorials
 
 - Start a CloudLab experiment
 
-You need to set up a CloudLab experiment according to [these instructions](https://github.com/OCT-FPGA/oct-tutorials/blob/main/cloudlab-setup/README.md) before you start running on hardware. Note that you don't need to set up the experiment until [Section 3.3.1](https://github.com/OCT-FPGA/Vitis-Tutorials-U280/blob/master/Getting_Started/vitis-getting-started-moc.md#331-copy-executables-to-cloudlab).
+You need to set up a CloudLab experiment according to [these instructions](https://github.com/OCT-FPGA/oct-tutorials/blob/main/cloudlab-setup/README.md) before you start running on hardware. Note that you don't need to set up the experiment until you reach [Section 3.3.1](https://github.com/OCT-FPGA/Vitis-Tutorials-U280/blob/master/Getting_Started/vitis-getting-started-moc.md#331-copy-executables-to-cloudlab).
 
 ## 1. Clone the repository
 
