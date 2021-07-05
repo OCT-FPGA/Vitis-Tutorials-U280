@@ -10,9 +10,15 @@ Xilinx Vitis 2020.1 or 2020.2
 
 ## Prerequisites
 
+- Set up an MOC VM
+
 It is assumed that you have already followed [these instructions](https://github.com/OCT-FPGA/oct-tutorials/blob/main/mocsetup/instancesetup.md) to create an MOC instance (VM) and booted it up. This is a one time process. Once your instance is created, it will remain active unless you delete it using the MOC web interface or OpenStack CLI. Whenever you want to log in to this instance, you can do so by entering information such as IP address and SSH private key using any SSH client such has PuTTY. Refer to [Set up SSH access](https://github.com/OCT-FPGA/oct-tutorials/tree/main/vncsshsetup#1-set-up-ssh-access) for details on how to do this. It is highly recommended that you [set up VNC access](https://github.com/OCT-FPGA/oct-tutorials/tree/main/vncsshsetup#2-set-up-vnc) to successfully complete this tutorial. The reason for this is that if you use just PuTTY to run Vitis build commands, and your PuTTY session gets disconnected while the build is running, the build process will be interrupted, and you will have to start over. Using VNC is recommended because the build process will run uninterrupted regardless of the status of the PuTTY session.
 
-## Clone the repository
+- Start a CloudLab experiment
+
+You need to set up a CloudLab experiment according to [these instructions](https://github.com/OCT-FPGA/oct-tutorials/blob/main/cloudlab-setup/README.md) before you start running on hardware. Note that you don't need to set up the experiment until Section 3.1.1.
+
+## 1. Clone the repository
 
 The first step is to open up a terminal in the booted MOC instance and enter the following command to clone the repository.
 
@@ -20,7 +26,7 @@ The first step is to open up a terminal in the booted MOC instance and enter the
 git clone https://github.com/OCT-FPGA/Vitis-Tutorials-U280.git
 ```
 
-## Setting up the environment
+## 2. Set up the environment
 
 * To configure the environment to run Vitis commands, run the following shell commands.
 
@@ -50,11 +56,11 @@ case $- in
 esac
 ```
 
-## Build and run
+## 3. Build and run
 
 All build and run instructions are based on https://github.com/Xilinx/Vitis-Tutorials/blob/master/Getting_Started/Vitis/Part4.md except for some platform specific changes. If you need to know the details of how these commands work, please refer to the original guilde. 
 
-### Software emulation
+### 3.1 Software emulation
 
 Enter the following commands to run software emulation.
 
@@ -82,7 +88,7 @@ INFO: Loading 'vadd.xclbin'
 TEST PASSED
 ```
 
-### Hardware emulation
+### 3.2 Hardware emulation
 
 After running software emulation, enter the following commands to run hardware emulation.
 
@@ -118,7 +124,7 @@ INFO: [HW-EM 06-0] Waiting for the simulator process to exit
 INFO: [HW-EM 06-1] All the simulator processes exited successfully
 ```
 
-### Hardware
+### 3.3 Hardware
 
 The last step is to build the application to run on actual U280 FPGA hardware. Note that hardware build can take several hours to complete. You can optionally set the number of jobs to run in order to reduce the build time. For example if you set ```--jobs 8``` as an additional argument to the Vitis build command (this is supported in Vitis versions 2020.2 or earlier), eight jobs will run simultaneously in the build process. This parameter needs to be chosen by taking into account the number of CPU cores that your instance has.   
 
@@ -143,7 +149,7 @@ scp -i ~/.ssh/cloudlab_openssh app.exe vadd.xclbin suranga@pc153.cloudlab.umass.
 
 Then, depending on your preference, you can choose one of the following two methods to run the program.
 
-#### 1. Local execution
+#### 3.3.1. Local execution
 
 After copying the files, log in to the CloudLab server (The instructions for setting up the CloudLab server for FPGA experiments are available [here](https://github.com/OCT-FPGA/oct-tutorials/tree/main/cloudlab-setup). Make sure that ```XILINX_XRT``` environment variable is set by running
 
@@ -156,7 +162,7 @@ Then run
 ./app.exe
 ```
 
-#### 2. Remote execution
+#### 3.3.2. Remote execution
 
 In this approach you can run the following command from within MOC.
 
