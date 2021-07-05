@@ -153,7 +153,7 @@ Then, depending on your preference, you can choose one of the following two meth
 
 #### 3.3.1. Local execution
 
-After copying the files, log in to the CloudLab server (The instructions for setting up the CloudLab server for FPGA experiments are available [here](https://github.com/OCT-FPGA/oct-tutorials/tree/main/cloudlab-setup). Make sure that ```XILINX_XRT``` environment variable is set by running
+After copying the files, log in to the CloudLab node. Make sure that ```XILINX_XRT``` environment variable is set by running
 
 ```bash
 source /opt/xilinx/xrt/setup.sh
