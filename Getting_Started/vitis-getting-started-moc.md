@@ -137,7 +137,7 @@ v++ -l -t hw --config ../../src/u280.cfg ./vadd.xo -o vadd.xclbin # optionally p
 ```
 #### 3.3.1 Copy executables to CloudLab
 
-To run the application on FPGA hardware, you need to copy app.exe and vadd.xclbin to the CloudLab server which hosts the U280. For this, you need to have the private key needed to connect to the CloudLab server stored on MOC. For information on setting up SSH keys, refer to [this guide](https://github.com/OCT-FPGA/oct-tutorials/blob/main/managing-keys/setup-keys.md). Once the SSH access is set up, you can copy the necessary files from MOC to CloudLab and run programs on FPGA hardware. Two files need to be copied; the bitstream (vadd.xclbin) and the application binary (app.exe). 
+To run the application on FPGA hardware, you need to copy app.exe and vadd.xclbin to the CloudLab server which hosts the U280. For this, you need to have the private key required to connect to the CloudLab server stored on MOC. For information on setting up SSH keys, refer to [this guide](https://github.com/OCT-FPGA/oct-tutorials/blob/main/managing-keys/setup-keys.md). Once the SSH access is set up, you can copy the necessary files from MOC to CloudLab and run programs on FPGA hardware. Two files need to be copied; the bitstream (vadd.xclbin) and the application binary (app.exe). 
 
 ```bash
 scp -i <path to CloudLab private key on MOC> vadd.xclbin app.exe <CloudLab Username>@<CloudLab IP>:~
