@@ -129,26 +129,9 @@ g++ -Wall -g -std=c++11 ../../src/host.cpp -o app.exe -I${XILINX_XRT}/include/ -
 v++ -c -t hw --config ../../src/u280.cfg -k vadd -I../../src ../../src/vadd.cpp -o vadd.xo 
 v++ -l -t hw --config ../../src/u280.cfg ./vadd.xo -o vadd.xclbin # optionally pass <--jobs <NUM_OF_JOBS>> here.
 ```
-To run the application on hardware, you need to copy app.exe and vadd.xclbin to the CloudLab server which hosts the U280. For this, you need to have the private key of the CloudLab server stored on MOC. 
+To run the application on FPGA hardware, you need to copy app.exe and vadd.xclbin to the CloudLab server which hosts the U280. For this, you need to have the private key of the CloudLab server stored on MOC. 
 
-#### Setting up the CloudLab private key
 
-You should already have a private key to access the CloudLab server from your home computer. This key can be stored on MOC, so that you can connect to CloudLab from MOC. Make sure that you use the OpenSSH format of the private key instead of .ppk for both MOC and CloudLab. [This guide](https://github.com/OCT-FPGA/oct-tutorials/blob/main/key-conversion/key-conversion.md) shows how to convert a PuTTY .ppk private key to OpenSSH format. If you use Windows, the following command in the command prompt will copy this key to MOC.
-
-```bash
-scp -i <path to MOC private key (OpenSSH)> <path to CloudLab private key (OpenSSH)> ubuntu@<MOC IP>:~/.ssh/
-```
-
-Example:
-
-```bash
-scp -i C:\Users\Suranga\Desktop\keys\moc_openssh C:\Users\Suranga\Desktop\keys\cloudlab_openssh ubuntu@128.31.25.145:~/.ssh/ 
-```
-After you copied this key to MOC, you should set the appropriate file permissions. Otherwise you won't be able to connect to the CloudLab server.
-
-```bash
-chmod 700 ~/.ssh/cloudlab_openssh
-```
 Now, you can copy all necessary files from MOC to CloudLab and run programs on the FPGA. We need to copy two files; the bitstream (vadd.xclbin) and the application binary (app.exe). 
 
 ```bash
