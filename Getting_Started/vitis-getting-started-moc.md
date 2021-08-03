@@ -2,7 +2,7 @@
 
 This guide provides step-by-step instructions on getting started with the Vitis vector addition example using Mass Open Cloud (MOC) and CloudLab. The example is customized version of the [getting started example published by Xilinx](https://github.com/Xilinx/Vitis-Tutorials/tree/master/Getting_Started/Vitis). Before you start, it is expected that you read part 1 and 3 of this tutorial. Part 2 is about installing tools which can be skipped because we have already provided an MOC image with tools (Vitis and some dependencies) installed. The original example doesn't have a configuration file for U280 card which we use in CloudLab. This file has been added in the customized version. The source code and the configuration file used for this tutorial can be found [here](https://github.com/OCT-FPGA/Vitis-Tutorials-U280/tree/master/Getting_Started/src). 
 
-For issues and fixes, please visit [this page](https://github.com/OCT-FPGA/oct-tutorials/blob/main/issues-and-fixes.md).
+For issues and fixes, please visit [this page](https://github.com/OCT-FPGA/oct-tutorials/blob/master/issues-and-fixes.md).
 	
 ## Tools
 
@@ -12,11 +12,11 @@ Xilinx Vitis 2020.1 or 2020.2
 
 - Set up an MOC VM
 
-You should follow [these instructions](https://github.com/OCT-FPGA/oct-tutorials/blob/main/mocsetup/instancesetup.md) to create an MOC instance (VM) and boot it up. This is a one time process. Once your instance is created, it will remain active unless you delete it using the MOC web interface or OpenStack CLI. Whenever you want to log in to this instance, you can do so by entering information such as IP address and SSH private key using any SSH client such has PuTTY. Refer to [Set up SSH access](https://github.com/OCT-FPGA/oct-tutorials/tree/main/vncsshsetup#1-set-up-ssh-access) for details on how to do this. It is highly recommended that you [set up VNC access](https://github.com/OCT-FPGA/oct-tutorials/tree/main/vncsshsetup#2-set-up-vnc) to successfully complete this tutorial. The reason for this is that if you use just PuTTY to run Vitis build commands, and your PuTTY session gets disconnected while the build is running, the build process will be interrupted, and you will have to start over. Using VNC is recommended because the build process will run uninterrupted regardless of the status of the PuTTY session.
+You should follow [these instructions](https://github.com/OCT-FPGA/oct-tutorials/blob/master/mocsetup/instancesetup.md) to create an MOC instance (VM) and boot it up. This is a one time process. Once your instance is created, it will remain active unless you delete it using the MOC web interface or OpenStack CLI. Whenever you want to log in to this instance, you can do so by entering information such as IP address and SSH private key using any SSH client such has PuTTY. Refer to [Set up SSH access](https://github.com/OCT-FPGA/oct-tutorials/tree/master/vncsshsetup#1-set-up-ssh-access) for details on how to do this. It is highly recommended that you [set up VNC access](https://github.com/OCT-FPGA/oct-tutorials/tree/master/vncsshsetup#2-set-up-vnc) to successfully complete this tutorial. The reason for this is that if you use just PuTTY to run Vitis build commands, and your PuTTY session gets disconnected while the build is running, the build process will be interrupted, and you will have to start over. Using VNC is recommended because the build process will run uninterrupted regardless of the status of the PuTTY session.
 
 - Start a CloudLab experiment
 
-You need to set up a CloudLab experiment according to [these instructions](https://github.com/OCT-FPGA/oct-tutorials/blob/main/cloudlab-setup/README.md) before you start running on hardware. Note that you don't need to set up the experiment until you reach [Section 3.3.1](https://github.com/OCT-FPGA/Vitis-Tutorials-U280/blob/master/Getting_Started/vitis-getting-started-moc.md#331-copy-executables-to-cloudlab).
+You need to set up a CloudLab experiment according to [these instructions](https://github.com/OCT-FPGA/oct-tutorials/blob/master/cloudlab-setup/README.md) before you start running on hardware. Note that you don't need to set up the experiment until you reach [Section 3.3.1](https://github.com/OCT-FPGA/Vitis-Tutorials-U280/blob/master/Getting_Started/vitis-getting-started-moc.md#331-copy-executables-to-cloudlab).
 
 ## 1. Clone the repository
 
@@ -137,7 +137,7 @@ v++ -l -t hw --config ../../src/u280.cfg ./vadd.xo -o vadd.xclbin # optionally p
 ```
 #### 3.3.1 Copy executables to CloudLab
 
-To run the application on FPGA hardware, you need to copy app.exe and vadd.xclbin to the CloudLab server which hosts the U280. For this, you need to have the private key required to connect to the CloudLab server stored on MOC. For information on setting up SSH keys, refer to [this guide](https://github.com/OCT-FPGA/oct-tutorials/blob/main/managing-keys/setup-keys.md). Once the SSH access is set up, you can copy the necessary files from MOC to CloudLab and run programs on FPGA hardware. Two files need to be copied; the bitstream (vadd.xclbin) and the application binary (app.exe). 
+To run the application on FPGA hardware, you need to copy app.exe and vadd.xclbin to the CloudLab server which hosts the U280. For this, you need to have the private key required to connect to the CloudLab server stored on MOC. For information on setting up SSH keys, refer to [this guide](https://github.com/OCT-FPGA/oct-tutorials/blob/master/managing-keys/setup-keys.md). Once the SSH access is set up, you can copy the necessary files from MOC to CloudLab and run programs on FPGA hardware. Two files need to be copied; the bitstream (vadd.xclbin) and the application binary (app.exe). 
 
 ```bash
 scp -i <path to CloudLab private key on MOC> vadd.xclbin app.exe <CloudLab Username>@<CloudLab IP>:~
