@@ -65,7 +65,7 @@ All build and run instructions are based on https://github.com/Xilinx/Vitis-Tuto
 Enter the following commands to run software emulation.
 
 ```bash
-cd <Path to the cloned repo>/Getting_Started/Vitis/example/u280/sw_emu
+cd <Path to the cloned repo>/Getting_Started/u280/sw_emu
 
 g++ -Wall -g -std=c++11 ../../src/host.cpp -o app.exe -I${XILINX_XRT}/include/ -L${XILINX_XRT}/lib/ -lOpenCL -lpthread -lrt -lstdc++
 emconfigutil --platform xilinx_u280_xdma_201920_3 --nd 1
