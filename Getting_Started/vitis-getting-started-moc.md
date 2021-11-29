@@ -47,7 +47,7 @@ export PLATFORM_REPO_PATHS=/opt/xilinx/platforms/xilinx_u280_xdma_201920_3/
 export LIBRARY_PATH=/usr/lib/x86_64-linux-gnu
 ```
 
-These ```source``` and ```export``` commands can be included in the the user .bashrc file located in the home directory (```~/.bashrc```), so you won't have to repeat these steps every time you log in to the VM. If you use .bashrc, you should include these commands below the following statement.
+These ```source``` and ```export``` commands can be included in the user .bashrc file located in the home directory (```~/.bashrc```), so you won't have to repeat these steps every time you log in to the VM. If you use .bashrc, you should include these commands below the following statement.
 
 ```bash
 case $- in
@@ -101,7 +101,7 @@ v++ -c -t hw_emu --config ../../src/u280.cfg -k vadd -I../../src ../../src/vadd.
 v++ -l -t hw_emu --config ../../src/u280.cfg ./vadd.xo -o vadd.xclbin
 ```
 
-Similar to what you did in software emulation, the the generated executable.
+Similar to what you did in software emulation, run the generated executable.
 
 ```bash
 export XCL_EMULATION_MODE=hw_emu
