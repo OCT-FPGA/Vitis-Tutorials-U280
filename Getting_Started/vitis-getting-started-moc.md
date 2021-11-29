@@ -73,7 +73,7 @@ v++ -c -t sw_emu --config ../../src/u280.cfg -k vadd -I../../src ../../src/vadd.
 v++ -l -t sw_emu --config ../../src/u280.cfg ./vadd.xo -o vadd.xclbin
 ```
 
-These commands will create a host application binary (app.exe) and an FPGA binary for software emulation. The next step is to tun the application in software emulation mode.
+These commands will create a host application binary (app.exe) and an FPGA binary for software emulation. The next step is to run the application in software emulation mode.
 
 ```bash
 export XCL_EMULATION_MODE=sw_emu
