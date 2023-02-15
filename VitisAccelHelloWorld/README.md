@@ -42,7 +42,7 @@ make all TARGET=sw_emu DEVICE=/opt/xilinx/platforms/xilinx_u280_xdma_201920_3/xi
 make all TARGET=hw_emu DEVICE=/opt/xilinx/platforms/xilinx_u280_xdma_201920_3/xilinx_u280_xdma_201920_3.xpfm
 ```
 
-### 2.3 HW
+### 2.3 HW build
 
 ```bash
 make all TARGET=hw DEVICE=/opt/xilinx/platforms/xilinx_u280_xdma_201920_3/xilinx_u280_xdma_201920_3.xpfm
@@ -110,7 +110,7 @@ INFO: [HW-EMU 06-1] All the simulator processes exited successfully
 
 ### 4.2 Run on FPGA hardware
 
-To run on FPGA hardware, copy the xclbin and the application binary (hello_world) to the cloudlab server. For example, if you want to copy these files to the home directory of pc151.cloudlab.umass.edu the command is
+To run on FPGA hardware, copy the xclbin and the executable (hello_world) to the cloudlab server. For example, if you want to copy these files to the home directory of pc151.cloudlab.umass.edu, you use the following command:
 
 ```bash
 scp -i ~/.ssh/<your cloudlab private key> hello_world ./build_dir.hw.xilinx_u280_xdma_201920_3/vadd.xclbin <your user name>@pc151.cloudlab.umass.edu:~
@@ -121,7 +121,7 @@ On the Cloudlab server make sure ```XILINX_XRT``` environment variable is set (s
 ```bash
 ./hello_world vadd.xclbin
 ```
-and you should see "TEST PASSED" on the terminal similar to sw and hw emulation result.
+and you should see "TEST PASSED" printed on the terminal.
 
 ```bash
 Found Platform
@@ -132,22 +132,3 @@ Trying to program device[0]: xilinx_u280_xdma_201920_3
 Device[0]: program successful!
 TEST PASSED
 ```
-
-## Issues and fixes
-
-
-- If you get the following error
-
-```bash
-fatal error: CL/cl2.hpp: No such file or directory
-```
-then you will need to install OpenCL headers by running ```sudo apt install opencl-headers``` and then run ```make host```.
-
-
-- You may get the warning "Permissions 0664 for '<your cloudlab private key>' are too open. It is required that your private key files are NOT accessible by others. This private key will be ignored." when trying to copy files to the target server.
-  
-  To fix this, you should change the permission level of the private key.
-  
-  ```bash
-  sudo chmod 600 ~/.ssh/<your cloudlab private key>
-  ```
