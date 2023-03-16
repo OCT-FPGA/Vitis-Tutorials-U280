@@ -116,12 +116,12 @@ To run on FPGA hardware, copy the xclbin and the executable (hello_world) to the
 scp -i ~/.ssh/<your cloudlab private key> hello_world ./build_dir.hw.xilinx_u280_xdma_201920_3/vadd.xclbin <your user name>@pc151.cloudlab.umass.edu:~
 ```
 
-On the Cloudlab server make sure ```XILINX_XRT``` environment variable is set (see step 3). Then run
+On the Cloudlab server run the application.
 
 ```bash
 ./hello_world vadd.xclbin
 ```
-and you should see "TEST PASSED" printed on the terminal.
+You should see "TEST PASSED" printed on the terminal.
 
 ```bash
 Found Platform
