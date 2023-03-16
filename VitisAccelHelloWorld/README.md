@@ -9,7 +9,7 @@ This guide provides step by step instructions to build and run the hello world (
 ## 1. Clone the repository
 
 ```bash
-git clone https://github.com/Xilinx/Vitis_Accel_Examples
+git clone https://github.com/Xilinx/Vitis_Accel_Examples -b 2020.2
 ```
 
 ## 2. Build
