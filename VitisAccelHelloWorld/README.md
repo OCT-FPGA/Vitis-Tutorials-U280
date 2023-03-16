@@ -4,7 +4,7 @@ This guide provides step by step instructions to build and run the hello world (
 
 ## Tools
 
-- Vitis 2020.2
+- Vitis 2021.2
 
 ## 1. Clone the repository
 
@@ -33,19 +33,19 @@ cd Vitis_Accel_Examples/hello_world
 ### 2.1 SW emulation
 
 ```bash
-make all TARGET=sw_emu DEVICE=/opt/xilinx/platforms/xilinx_u280_xdma_201920_3/xilinx_u280_xdma_201920_3.xpfm
+make all TARGET=sw_emu PLATFORM=/opt/xilinx/platforms/xilinx_u280_xdma_201920_3/xilinx_u280_xdma_201920_3.xpfm
 ```
 
 ### 2.2 HW emulation
 
 ```bash
-make all TARGET=hw_emu DEVICE=/opt/xilinx/platforms/xilinx_u280_xdma_201920_3/xilinx_u280_xdma_201920_3.xpfm
+make all TARGET=hw_emu PLATFORM=/opt/xilinx/platforms/xilinx_u280_xdma_201920_3/xilinx_u280_xdma_201920_3.xpfm
 ```
 
 ### 2.3 HW build
 
 ```bash
-make all TARGET=hw DEVICE=/opt/xilinx/platforms/xilinx_u280_xdma_201920_3/xilinx_u280_xdma_201920_3.xpfm
+make all TARGET=hw PLATFORM=/opt/xilinx/platforms/xilinx_u280_xdma_201920_3/xilinx_u280_xdma_201920_3.xpfm
 ```
 
 
