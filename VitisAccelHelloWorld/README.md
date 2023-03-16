@@ -49,9 +49,9 @@ make all TARGET=hw DEVICE=/opt/xilinx/platforms/xilinx_u280_xdma_201920_3/xilinx
 ```
 
 
-## 4. Run application
+## 3. Run application
 
-### 4.1 Run software and hardware emulation
+### 3.1 Run software and hardware emulation
 
 - SW emulation 
 
@@ -108,7 +108,7 @@ INFO: [HW-EMU 06-0] Waiting for the simulator process to exit
 INFO: [HW-EMU 06-1] All the simulator processes exited successfully
 ```
 
-### 4.2 Run on FPGA hardware
+### 3.2 Run on FPGA hardware
 
 To run on FPGA hardware, copy the xclbin and the executable (hello_world) to the cloudlab server. For example, if you want to copy these files to the home directory of pc151.cloudlab.umass.edu, you use the following command:
 
