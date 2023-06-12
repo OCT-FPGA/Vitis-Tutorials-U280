@@ -4,7 +4,7 @@ This guide provides step by step instructions to build and run the hello world (
 
 ## Tools
 
-- Vitis 2021.2
+- Vitis 2022.2
 
 ## 1. Clone the repository
 
@@ -17,7 +17,7 @@ git clone https://github.com/Xilinx/Vitis_Accel_Examples
 Make sure that ```XILINX_VITIS``` and ```XILINX_XRT``` environment variables are set. This can be done by
 
 ```bash
-source /tools/Xilinx/Vitis/2020.2/settings64.sh
+source /tools/Xilinx/Vitis/2022.2/settings64.sh
 ```
 
 ```bash
@@ -33,19 +33,19 @@ cd Vitis_Accel_Examples/hello_world
 ### 2.1 SW emulation
 
 ```bash
-make all TARGET=sw_emu PLATFORM=/opt/xilinx/platforms/xilinx_u280_xdma_201920_3/xilinx_u280_xdma_201920_3.xpfm
+make all TARGET=sw_emu PLATFORM=/opt/xilinx/platforms/xilinx_u280_gen3x16_xdma_1_202211_1/xilinx_u280_gen3x16_xdma_1_202211_1.xpfm
 ```
 
 ### 2.2 HW emulation
 
 ```bash
-make all TARGET=hw_emu PLATFORM=/opt/xilinx/platforms/xilinx_u280_xdma_201920_3/xilinx_u280_xdma_201920_3.xpfm
+make all TARGET=hw_emu PLATFORM=/opt/xilinx/platforms/xilinx_u280_gen3x16_xdma_1_202211_1/xilinx_u280_gen3x16_xdma_1_202211_1.xpfm
 ```
 
 ### 2.3 HW build
 
 ```bash
-make all TARGET=hw PLATFORM=/opt/xilinx/platforms/xilinx_u280_xdma_201920_3/xilinx_u280_xdma_201920_3.xpfm
+make all TARGET=hw PLATFORM=/opt/xilinx/platforms/xilinx_u280_gen3x16_xdma_1_202211_1/xilinx_u280_gen3x16_xdma_1_202211_1.xpfm
 ```
 
 
@@ -60,7 +60,7 @@ export XCL_EMULATION_MODE=sw_emu
 ```
 
 ```bash
-./hello_world ./build_dir.sw_emu.xilinx_u280_xdma_201920_3/vadd.xclbin
+./hello_world ./build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/vadd.xclbin
 ```
 
 Output:
@@ -68,14 +68,19 @@ Output:
 ```bash
 Found Platform
 Platform Name: Xilinx
-INFO: Reading ./build_dir.sw_emu.xilinx_u280_xdma_201920_3/vadd.xclbin
-Loading: './build_dir.sw_emu.xilinx_u280_xdma_201920_3/vadd.xclbin'
+INFO: Reading build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/vadd.xclbin
+Loading: 'build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/vadd.xclbin'
 CRITICAL WARNING: [SW-EM 09-0] Unable to find emconfig.json. Using default device "xilinx:pcie-hw-em:7v3:1.0"
 Trying to program device[0]: xilinx:pcie-hw-em:7v3:1.0
+Kernel Name: vadd_1, CU Number: 0, Thread creation status: success
 Device[0]: program successful!
+Kernel Name: vadd_1, CU Number: 0, State: Start
+Kernel Name: vadd_1, CU Number: 0, State: Running
+Kernel Name: vadd_1, CU Number: 0, State: Idle
 TEST PASSED
-The maximum depth reached by any of the 3 hls::stream() instances in the design is 256
-
+device process sw_emu_device done
+Kernel Name: vadd_1, CU Number: 0, Status: Shutdown
+INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 256
 ```
 
 - HW emulation 
@@ -85,7 +90,7 @@ export XCL_EMULATION_MODE=hw_emu
 ```
 
 ```bash
-./hello_world ./build_dir.hw_emu.xilinx_u280_xdma_201920_3/vadd.xclbin
+./hello_world ./build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/vadd.xclbin
 ```
 
 Output:
@@ -113,7 +118,7 @@ INFO: [HW-EMU 06-1] All the simulator processes exited successfully
 To run on FPGA hardware, copy the xclbin and the executable (hello_world) to the cloudlab server. For example, if you want to copy these files to the home directory of pc151.cloudlab.umass.edu, you use the following command:
 
 ```bash
-scp -i ~/.ssh/<your cloudlab private key> hello_world ./build_dir.hw.xilinx_u280_xdma_201920_3/vadd.xclbin <your user name>@pc151.cloudlab.umass.edu:~
+scp -i ~/.ssh/<your cloudlab private key> hello_world ./build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/vadd.xclbin <your user name>@pc151.cloudlab.umass.edu:~
 ```
 
 On the Cloudlab server run the application.
@@ -128,7 +133,7 @@ Found Platform
 Platform Name: Xilinx
 INFO: Reading vadd.xclbin
 Loading: 'vadd.xclbin'
-Trying to program device[0]: xilinx_u280_xdma_201920_3
+Trying to program device[0]: xilinx_u280_gen3x16_xdma_base_1
 Device[0]: program successful!
 TEST PASSED
 ```
