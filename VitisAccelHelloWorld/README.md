@@ -97,20 +97,21 @@ Output:
 ```bash
 Found Platform
 Platform Name: Xilinx
-INFO: Reading ./build_dir.hw_emu.xilinx_u280_xdma_201920_3/vadd.xclbin
-Loading: './build_dir.hw_emu.xilinx_u280_xdma_201920_3/vadd.xclbin'
+INFO: Reading build_dir.hw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/vadd.xclbin
+Loading: 'build_dir.hw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/vadd.xclbin'
 CRITICAL WARNING: [HW-EMU 08-0] Unable to find emconfig.json. Using default device "xilinx:pcie-hw-em:7v3:1.0"
 Trying to program device[0]: xilinx:pcie-hw-em:7v3:1.0
-INFO: [HW-EMU 01] Hardware emulation runs simulation underneath. Using a large data set will result in long simulation times. It is recommended that a small dataset is used for faster execution. The flow uses approximate models for DDR memory and interconnect and hence the performance data generated is approximate.
+INFO: [HW-EMU 05] Path of the simulation directory : /home/ubuntu/Vitis_Accel_Examples/hello_world/.run/227428/hw_em/device0/binary_0/behav_waveform/xsim
+
+ server socket name is	/tmp/ubuntu/device0_0_227428
+INFO: [HW-EMU 01] Hardware emulation runs simulation underneath. Using a large data set will result in long simulation times. It is recommended that a small dataset is used for faster execution. The flow uses approximate models for Global memories and interconnect and hence the performance data generated is approximate.
+configuring penguin scheduler mode
+scheduler config ert(0), dataflow(1), slots(16), cudma(1), cuisr(0), cdma(0), cus(1)
 Device[0]: program successful!
 TEST PASSED
-INFO::[ Vitis-EM 22 ] [Time elapsed: 0 minute(s) 20 seconds, Emulation time: 0.0277806 ms]
-Data transfer between kernel(s) and global memory(s)
-vadd_1:m_axi_gmem0-HBM[0]          RD = 16.000 KB              WR = 16.000 KB
-vadd_1:m_axi_gmem1-HBM[0]          RD = 16.000 KB              WR = 0.000 KB
-
 INFO: [HW-EMU 06-0] Waiting for the simulator process to exit
 INFO: [HW-EMU 06-1] All the simulator processes exited successfully
+INFO: [HW-EMU 07-0] Please refer the path "/home/ubuntu/Vitis_Accel_Examples/hello_world/.run/227428/hw_em/device0/binary_0/behav_waveform/xsim/simulate.log" for more detailed simulation infos, errors and warnings.
 ```
 
 ### 3.2 Run on FPGA hardware
