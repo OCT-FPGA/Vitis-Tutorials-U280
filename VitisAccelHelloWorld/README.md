@@ -4,7 +4,7 @@ This guide provides step by step instructions to build and run the hello world (
 
 ## Tools
 
-- Vitis 2022.2
+- Vitis 2022.2 or Vitis 2023.1
 
 ## 1. Clone the repository
 
