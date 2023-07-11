@@ -110,7 +110,7 @@ INFO: [HW-EMU 06-1] All the simulator processes exited successfully
 
 ### 3.2 Run on FPGA hardware
 
-To run on FPGA hardware, copy the xclbin and the executable (hello_world) to the cloudlab server. Before doing this, make sure you place the CloudLab private key in the ~/.ssh/ directory on the NERC machine. If your CloudLab private key was generated using PuTTY, it needs to be converted to OpenSSH format before being placed on the NERC machine. Follow these instructions for key conversion.
+To run on FPGA hardware, copy the xclbin and the executable (hello_world) to the cloudlab server. Before doing this, make sure you place the CloudLab private key in the ~/.ssh/ directory on the NERC machine. If your CloudLab private key was generated using PuTTY, it needs to be converted to OpenSSH format before being placed on the NERC machine. Follow [these](https://github.com/OCT-FPGA/OCT-Tutorials/blob/master/managing-keys/key-conversion.md) instructions for key conversion. 
 
 For example, if you want to copy these files to the home directory of pc151.cloudlab.umass.edu, you use the following command:
 
