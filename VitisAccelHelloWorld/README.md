@@ -2,6 +2,11 @@
 
 This guide provides step by step instructions to build and run the hello world (vector addition) example in https://github.com/Xilinx/Vitis_Accel_Examples on a Xilinx U280 target. 
 
+
+## Prerequisites
+
+Access to a build machine equipped with Vitis 2023.1 is required. If you don't have access to one, we can offer assistance in providing access. Please refer to the instructions provided at [this link](https://github.com/OCT-FPGA/OCT-Tutorials/blob/master/nercsetup/nerc-vm-guide.md).
+
 ## Tools
 
 - Vitis 2022.2 or Vitis 2023.1
