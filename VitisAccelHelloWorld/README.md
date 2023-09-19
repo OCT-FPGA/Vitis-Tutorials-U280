@@ -95,7 +95,7 @@ export XCL_EMULATION_MODE=hw_emu
 ```
 
 ```bash
-./hello_world ./build_dir.sw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/vadd.xclbin
+./hello_world ./build_dir.hw_emu.xilinx_u280_gen3x16_xdma_1_202211_1/vadd.xclbin
 ```
 
 Output:
