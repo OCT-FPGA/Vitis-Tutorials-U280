@@ -87,6 +87,7 @@ unset XCL_EMULATION_MODE
 Log into the build machine, clone the Vitis Accel Examples repository.
 
 ```git clone https://github.com/Xilinx/Vitis_Accel_Examples -b 2023.1```
+
 ```cd Vitis_Accel_Examples/hello_world```
 
 ### 3.1 SW emulation
